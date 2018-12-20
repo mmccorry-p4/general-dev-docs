@@ -1,17 +1,17 @@
 (Based off https://datawookie.netlify.com/blog/2017/08/remote-desktop-on-an-ubuntu-ec2-instance/)
 
-##To access the Amazon EC2 server via SSH with X11 forwarding simply type (nothing to setup on server)
+## To access the Amazon EC2 server via SSH with X11 forwarding simply type (nothing to setup on server)
 
 ```bash
 ssh -X scidb@SERVER_IP_ADDRESS
 ```
 
-##Setting up an Amazon EC2 server for remote desktop access
+## Setting up an Amazon EC2 server for remote desktop access
 
 Connect via SSH.
 
 ```bash
-ssh scidb@SERVER_IP_ADDRESS
+ssh username@SERVER_IP_ADDRESS
 ```
 
 Install a few packages.
@@ -39,8 +39,9 @@ username=ask
 password=ask
 ip=127.0.0.1
 port=ask-1
-In the AWS Dashboard edit the Security Group for the EC2 instance and allow inbound TCP connections on port 3389.
 ```
+
+In the AWS Dashboard edit the Security Group for the EC2 instance and allow inbound TCP connections on port 3389.
 
 Restart RDP.
 
@@ -64,9 +65,11 @@ fi
 ```
 
 
-##Acessing the remote desktop from ubuntu or windows
+## Acessing the remote desktop from ubuntu or windows
 
-See https://datawookie.netlify.com/blog/2017/08/remote-desktop-on-an-ubuntu-ec2-instance/ for how to use vinagre to remote desktop (vnc) into the machine
+See https://datawookie.netlify.com/blog/2017/08/remote-desktop-on-an-ubuntu-ec2-instance/ for how to use vinagre to remote desktop (vnc) into the machine. (Don't run this from within a virtual machine as it runs into problems often.)
+
+From Windows, simply use Remote Desktop (my preferred method if you guest OS is not Unix/Linux/Mac) and not a VNC client.
 
 ## If there are issues connecting to the server, you may need to run the following command on the host:
 ```
